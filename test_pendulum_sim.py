@@ -40,10 +40,22 @@ def main():
     plt.savefig("results/figures/sample_phase_portrait.png", dpi=150)
     plt.close()
 
+    energy_error = energy - energy[0]
+
+    plt.figure(figsize=(8, 4))
+    plt.plot(sol.t, energy_error)
+    plt.xlabel("t")
+    plt.ylabel("energy error")
+    plt.ticklabel_format(axis="y", style="plain", useOffset=False)
+    plt.tight_layout()
+    plt.savefig("results/figures/sample_energy_error.png", dpi=150)
+    plt.close()
+
     plt.figure(figsize=(8, 4))
     plt.plot(sol.t, energy)
     plt.xlabel("t")
     plt.ylabel("energy")
+    plt.ticklabel_format(axis="y", style="plain", useOffset=False)
     plt.tight_layout()
     plt.savefig("results/figures/sample_energy.png", dpi=150)
     plt.close()
