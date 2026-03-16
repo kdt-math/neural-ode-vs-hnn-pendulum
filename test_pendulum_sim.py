@@ -42,14 +42,14 @@ def main():
 
     energy_error = energy - energy[0]
 
-    plt.figure(figsize=(8, 4))
-    plt.plot(sol.t, energy_error)
-    plt.xlabel("t")
-    plt.ylabel("energy error")
-    plt.ticklabel_format(axis="y", style="plain", useOffset=False)
-    plt.tight_layout()
-    plt.savefig("results/figures/sample_energy_error.png", dpi=150)
-    plt.close()
+    fig, ax = plt.subplots(figsize=(8, 4))
+    ax.plot(sol.t, energy_error)
+    ax.set_xlabel("t")
+    ax.set_ylabel("energy error")
+    ax.ticklabel_format(axis="y", style="sci", scilimits=(0, 0), useMathText=True)
+    fig.tight_layout()
+    fig.savefig("results/figures/sample_energy_error.png", dpi=150)
+    plt.close(fig)
 
     plt.figure(figsize=(8, 4))
     plt.plot(sol.t, energy)
